@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[all]{xy}
+
+
+\usepackage{amsmath,amsthm,amssymb,color,latexsym}
+\usepackage{geometry}        
+\geometry{letterpaper}    
+\usepackage{graphicx}
+
+\newtheorem{problem}{Problem}
+
+\newenvironment{solution}[1][\it{Solution}]{\textbf{#1. } }{$\square$}
+
+
+\begin{document}
+\noindent Stein Real Analysis \hfill Chapter 3\\
+Yunzhe Zheng. (2025/01)
+
+\hrulefill
+
+\begin{problem}
+Suppose $\varphi$ is an integrable function on $\mathbb{R}^{d}$ with $\int_{\mathbb{R}^{d}}\varphi(x)dx = 1$. Set $K_{\delta}(x) = \delta^{-d}\varphi(x/\delta)$, $\delta > 0$. \\
+
+(1). Prove that $\{K_{delta}\}_{\delta>0}$ is a family of good kernels. \\
+\indent (2). Assume in addition that $\varphi$ is bounded and supported in a bounded set. Verify that $\{K_{\delta}\}_{\delta>0}$ is an approximation to the identity. \\
+\indent (3). Show that Theorem 2.3 holds for good kernels as well.
+\end{problem}
+
+\textbf{Proof:} (1). Firstly, $\int_{\mathbb{R}^{d}}K_{\delta}(x)dx = \int_{\mathbb{R}^{d}}\delta^{-d}\varphi(x/\delta)dx$, and by change of variable, it's identical to $\int_{\mathbb{R}^{d}}\varphi(u)du = 1$. Secondly, $\int_{\mathbb{R}^{d}}\left | \delta^{-d} \varphi(x/\delta)\right | = \delta^{-d}\int_{\mathbb{R}^{d}}|\varphi(x/\delta)|dx$, and by change of variable and the fact that $\varphi$ is lebesgue integrable, $\int_{\mathbb{R}^{d}}|\delta^{-d}\varphi(x/\delta)|dx \leq A$ for some $A$ independent of $\delta$. Finally, for fixed $\eta$,  by change of variable, $\int_{\mathbb{R}^{d}}\delta^{-d}|\varphi(x/\delta)|dx = \int_{u>\eta / \delta}|\varphi(u)|du$. Since $\eta / \delta\to\infty$ as $\delta\to 0$, thus the integral approaches 0 by integrability. \\
+
+(2). Suppose that for $|x| > B$, $\varphi(x) = 0$, and $\sup\varphi(x) = M$. Setting $A = MB^{d+1}$, then $\delta^{-d}\varphi(x/\delta)< \frac{M|x/\delta|^{d+1}}{|x|^{d+1}} < \frac{A}{|x|^{d+1}}$ for $\frac{|x|}{\delta}\leq B$, otherwise it's zero. If we pick $B$ large enough ($B > 1$), then $|K_{\delta}(x)| \leq MB^{d+1}\delta^{-d} = A\delta^{-d}$ is obvious. Thus $K_{\delta}(x)$ is an approximation to identity. \\
+
+(3). To prove integrability, we utilize Fubini Theorem, and the convolution is integrable. Secondly, compute
+
+\begin{eqnarray*}
+\int_{\mathbb{R}^{d}}(\int_{\mathbb{R}^{d}}f(x-y)K_{\delta}(y)dy - f(x))dx 
+&=& \int_{R^{d}}\int_{R^{d}}\left [ f(x-y) - f(x)\right]K_{\delta}(y)dydx \\
+&=& \int_{\mathbb{R}^{d}}K_{\delta}(y)\int_{\mathbb{R^{d}}}(f(x-y) - f(x))dxdy \\
+&=& \int_{|y| > \eta}K_{\delta}(y)\int_{\mathbb{R}^{d}}(f(x-y) - f(y))dxdy \\
+&+& \int_{|y|\leq \eta}K_{\delta}(y)\int_{\mathbb{R}^{d}}(f(x-y)  - f(y))dxdy 
+\end{eqnarray*}, where $\eta$ is chosen so that $\int_{\mathbb{R}^{d}}(f(x - y) - f(x))<\epsilon$, thus $\|(f \ast K_{\delta}) - f\|_{1}\to 0$ as $\delta\to 0$.
+
+
+
+
+\end{document}

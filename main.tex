@@ -39,9 +39,23 @@ Suppose $\varphi$ is an integrable function on $\mathbb{R}^{d}$ with $\int_{\mat
 &=& \int_{\mathbb{R}^{d}}K_{\delta}(y)\int_{\mathbb{R^{d}}}(f(x-y) - f(x))dxdy \\
 &=& \int_{|y| > \eta}K_{\delta}(y)\int_{\mathbb{R}^{d}}(f(x-y) - f(y))dxdy \\
 &+& \int_{|y|\leq \eta}K_{\delta}(y)\int_{\mathbb{R}^{d}}(f(x-y)  - f(y))dxdy 
-\end{eqnarray*}, where $\eta$ is chosen so that $\int_{\mathbb{R}^{d}}(f(x - y) - f(x))<\epsilon$, thus $\|(f \ast K_{\delta}) - f\|_{1}\to 0$ as $\delta\to 0$.
+\end{eqnarray*}, where $\eta$ is chosen so that $\int_{\mathbb{R}^{d}}(f(x - y) - f(x))<\epsilon$, thus $\|(f \ast K_{\delta}) - f\|_{1}\to 0$ as $\delta\to 0$. \qed
 
 
+\begin{problem}
+Suppose that $\{K_{\delta}\}$ is a family of kernels that satisfies: \\
 
+(i). $|K_{\delta}(x)|\leq A\delta^{-d}$ for all $\delta > 0$. \\
+\indent (ii). $|k_{\delta}(x)|\leq A\delta/|x|^{d+1}|$ for all $\delta > 0$. \\ 
+\indent (iii). $\int_{-\infty}^{\infty}K_{\delta}(x)dx = 0$ for all $\delta > 0$. \\
+
+Show that if $f$ is integrable on $\mathbb{R}^{d}$, then $(f\ast K_{\delta})(x) \to 0$ for almost every $x$ as $\delta\to 0$.
+\end{problem}
+
+\textbf{Proof:} Notice that $\left | (f \ast K_{\delta})(x) \right | = \left | \int_{\mathbb{R^{d}}} f(x-y)K_{\delta}(y)dy \right | = \left | \int_{\mathbb{R}^{d}}f(x-y)K_{\delta}(y) - \int_{\mathbb{R}^{d}}f(x)K_{\delta}(y)\right |$. Then the proof follows exactly the same as in Theorem 2.1 Chapter 3. \qed
+
+\begin{problem}
+    
+\end{problem}
 
 \end{document}

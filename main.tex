@@ -55,7 +55,35 @@ Show that if $f$ is integrable on $\mathbb{R}^{d}$, then $(f\ast K_{\delta})(x) 
 \textbf{Proof:} Notice that $\left | (f \ast K_{\delta})(x) \right | = \left | \int_{\mathbb{R^{d}}} f(x-y)K_{\delta}(y)dy \right | = \left | \int_{\mathbb{R}^{d}}f(x-y)K_{\delta}(y) - \int_{\mathbb{R}^{d}}f(x)K_{\delta}(y)\right |$. Then the proof follows exactly the same as in Theorem 2.1 Chapter 3. \qed
 
 \begin{problem}
-    
+Suppose $0$ is a point of Lebesgue density of the set $E\subset\mathbb{R}$. Show that for each of the individual conditions below there is an infinite sequence of points $\{x_{n}\}\subset E$, with $x_{n}\neq 0$, and $x_{n}\to 0$ as $n\to \infty$. \\
+
+(a). The sequence also satisfies $-x_{n}\in E$ for all $n$. \\
+\indent (b). In addition, $2x_{n}$ belongs to $E$ for all $n$.
 \end{problem}
+
+\textbf{Proof:} (a). We confine ourselves in the ball $B_{1}$ centered at $0$ with a radius of $1$. Choose $\{x_{n}\}$ in the following way: $x_{1}$ is the element in $(0, 1)\cap E$ such that $-x_{n}\in B_{1}\cap E$, for if such $x_{1}$ doesn't exists, then for every $x\in (0, 1)\cap E$, $-x\notin (-1, 0)\cap E$, thus we can find a sequence of sets where $S_{i}$ is the Ball centered at $0$ with a radius of $1/i$, and $\frac{m(B_{i}\cap E)}{m(B)}\leq \frac{1}{2}$, then $0$ cannot be a point of Lebesgue density. $x_{i}$ can be defined recursively in the ball $B_{0}(x_{i - 1})$. Thus we construct a sequence as desired. \\
+
+(b). The idea is to show that $E\cap \frac{1}{2}E$ has positive measure, then since $0\in (\frac{1}{2}E)\cap E$, there exists a sequence $\{x_{n}\}$ in $\frac{1}{2}E$ (in fact in $\frac{1}{2}E)\cap E$), such that $2x_{n}\in E$. \\ 
+\indent To prove that, since $0$ is a point of Lebesgue density, then there exists $r_{0}$ such that for $r \leq r_{0}$, $m(E\cap B_{r}(0)) > \frac{2}{3}m(B_{r}(0)) = \frac{4}{3}r$, then $m(\frac{1}{2}E\cap B_{r_{0}/2}(0))>\frac{2}{3}r$. Also, we have $m(E\cap B_{r_{0}/2}(0)) >\frac{2}{3}m(B_{r_{0}/2}(0)) = \frac{2}{3}r$, then since $2\times \frac{2}{3} > 1 = m(B_{r_{0}/2}(0))$, $E$ and $\frac{1}{2}E$ intersects and have positive measure. \qed
+
+\begin{problem}
+Prove that if $f$ is integrable on $\mathbb{R}^{d}$, and $f$ is not identically zero, then 
+$$
+f^{*}(x)\geq \frac{c}{|x|^{d}}, \text{ for some } c > 0 \text{ and all } |x| \geq 1.
+$$ Conclude that $f^{*}$ is not integrable on $\mathbb{R}^{d}$. Then show that the weak type estimate $m(\{x: f^{*}(x) > \alpha\}) \leq c/\alpha$ for all $\alpha > 0 $ whenever $\int |f| = 1$, is the best possible in the following sense: if $f$ is supported in the unit ball with $\int |f| = 1$, then   
+$$
+m(\{x : f^{*}(x) > \alpha\}) \geq c'/\alpha
+$$ for some $c' > 0$ and all sufficiently small $\alpha$.
+\end{problem}
+
+\textbf{Proof:} Since $f$ is not identically zero, there exists $B_{r}(0)$ such that $\int_{B_{r}(0)}|f(x)|dx > 0$. For $x$, construct a ball centered at it with a radius of $R = |x| + r$, containing $B_{r}(0)$. Then, 
+$$
+f^{*}(x) > \frac{1}{m(B_{R}(x))}\int_{B_{R}(x)}|f(y)|dy = \frac{1}{R^{d}V}\int_{B_{R}(x)}|f(y)|dy > \frac{1}{R^dV}\int_{B_{r}(0)}|f(y)|dy
+$$
+Notice the inequality $\frac{1}{|x| + r}>\frac{1}{|x|(1+r)}$, then take $c = \frac{1}{(1+r)^{d}V}\int_{B_{r}(0)}|f(y)|dy$, we obtain the desired inequality. And $f^{*}$ is not integrable since $\int_{\mathbb{R}^{d}}|f^{*}(x)|dx \geq \int_{|x| \geq 1}|f^{*}(x)|dx = \infty$. \qed 
+
+
+
+
 
 \end{document}

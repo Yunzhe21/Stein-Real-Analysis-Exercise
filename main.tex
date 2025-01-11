@@ -82,8 +82,58 @@ f^{*}(x) > \frac{1}{m(B_{R}(x))}\int_{B_{R}(x)}|f(y)|dy = \frac{1}{R^{d}V}\int_{
 $$
 Notice the inequality $\frac{1}{|x| + r}>\frac{1}{|x|(1+r)}$, then take $c = \frac{1}{(1+r)^{d}V}\int_{B_{r}(0)}|f(y)|dy$, we obtain the desired inequality. And $f^{*}$ is not integrable since $\int_{\mathbb{R}^{d}}|f^{*}(x)|dx \geq \int_{|x| \geq 1}|f^{*}(x)|dx = \infty$. \qed 
 
+\begin{problem}
+Consider a function on $\mathbb{R}$ defined as 
+$$
+f(x)=\left\{\begin{matrix}
+  \frac{1}{|x|(\log 1/|x|)^{2}}& \text{if } |x| \leq 1/2\\
+  0& \text{otherwise}
+\end{matrix}\right.
+$$
+(a) Verify that $f$ is integrable. \\
+(b) Establish the inequality 
+$$
+f^{*}(x)\geq \frac{c}{|x|(\log 1/|x|)} \text{ for some } c \text{ and all } |x|\leq 1/2
+$$
+\indent to conclude that the maximal function $f^{*}$ is not locally integrable.
+\end{problem}
 
+\textbf{Proof:} (a) Notice that $f$ has only one singularity at $x=0$, and is continuous almost everywhere on $[-1/2, 1/2]$, zero elsewhere, then $f$ is integrable in both Riemann and Lebesgue sense. Further, the integral is equal to $\frac{2}{\log 2}$ \\
+\indent (b) For all $x$ such that $|x|\leq 1/2$.  Choose set $B$ as $B_{|x|}(x)$ (the ball centered at x with radius $|x|$), then 
+$$
+\frac{1}{m(B)}\int_{B} f(y)dy=\frac{1}{m(B)}\int_{B}\frac{1}{|y|(\log 1/|y|)^{2}}dy=\frac{1}{2|x|}\int_{0}^{2|x|}\frac{1}{y(\log 1/y)^{2}}dy
+$$
+the last equality holds by observing that the integrand is an even function. Further, 
+$$
+\frac{1}{2|x|}\int_{0}^{2|x|}\frac{1}{y(\log 1/y)^{2}}dy\geq \frac{1}{2|x|}\int_{0}^{|x|}\frac{1}{y(\log 1/y)^{2}}dy=\frac{1}{2|x|}\cdot \frac{1}{\log(1/|x|)}
+$$
+Thus, we find the desired $c=1/2$ \qed 
 
+\begin{problem}
+In one dimension there is a version of the basic inequality (weak type estimate) for the maximal function in the form of an identity. We define the "one-sided" maximal function 
+$$
+f^{*}_{+}(x) = \sup_{h > 0} \frac{1}{h}\int_{x}^{x+h}|f(y)|dy. 
+$$ If $E_{\alpha}^{+}=\{x\in\mathbb{R}^{+}: f^{*}_{+}(x) >\alpha\}$, then 
+$$
+m(E_{\alpha}^{*}) = \frac{1}{\alpha}\int_{E_{\alpha}^{+}}|f(y)|dy.
+$$
+\end{problem} 
+
+\textbf{Proof:} $x\in E_{\alpha}^{+} \iff \exists h >0$ such that $\frac{1}{h}\int_{x}^{x+h}|f(y)|dy >\alpha$, then it's equivalent to $\int_{x}^{x+h}|f(y)|dy>\alpha\cdot h\iff \int_{0}^{x+h}|f(y)|dy-\alpha\cdot (x+h) > \int_{0}^{x}|f(y)|dy - \alpha\cdot x$. By setting $F(x) = \int_{0}^{x}|f(y)|dy - \alpha\cdot x$, we can apply Lemma 3.5 (Sunrise Lemma), and obtain that $E=\bigcup (a_{k}, b_{k})$, where $F(a_{k}) = F(b_{k})$. Thus 
+\begin{eqnarray*}
+&\int_{0}^{a_{k}}|f(y)|dy - \alpha\cdot a_{k} = \int_{0}^{b_{k}}|f(y)|dy - \alpha\cdot b_{k} \\
+&\iff \alpha\cdot (b_{k}-a_{k}) = \int_{a_{k}}^{b_{k}}|f(y)|dy
+\end{eqnarray*} By adding intervals together, we get the desired equality. \qed
+
+\begin{problem}
+Using Corollary 1.5, prove that if a measurable subset $E$ of $[0,1]$ satisfies $m(E\cap I)\geq \alpha m(I)$ for some $\alpha > 0$ and all intervals $I$ in $[0, 1]$, then $E$ has measure $1$. 
+\end{problem}
+
+\textbf{proof:} Denote $[0, 1] - E$ as $K$, then for every interval $I$ of $[0,1]$, $m(I\cap ([0,1] - E)) = m(I - (I\cap E)) = m(I) - m(I\cap E) \leq m(I) - \alpha m(I)$ as given in the assumption. Thus $\frac{m(I\cap K)}{m(I)}\leq (1-\alpha)$, so is its limit. By the definition of Lebesgue density point, no point inside $k$ is a Lebesgue density point of $K$, thus by Corollary 1.5, its measure has to be $0$, and the measure of $E$ is $1$ consequently. \qed
+
+\begin{problem}
+
+\end{problem}
 
 
 \end{document}
